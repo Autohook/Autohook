@@ -4,6 +4,8 @@
 
 It consists of one Bash script which acts as the entry point for all the hooks, and which runs scripts based on file names.
 
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/nkantar)
+
 ## Example
 
 Let's say you have a cleanup script you want run before commits, aka as a `pre-commit` hook. Here's what you could do:
