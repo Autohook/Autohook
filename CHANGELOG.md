@@ -3,8 +3,11 @@
 
 ## [Unreleased]
 
+### Changed
+- Added release dates to the changelog.
 
-## [1.0.2]
+
+## [1.0.2] - 2017-07-31
 
 ### Added
 - Code of Conduct
@@ -13,13 +16,13 @@
 - Changelog
 
 
-## [1.0.1]
+## [1.0.1] - 2017-06-02
 
 ### Added
 - SayThanks.io badge to README
 
 
-## [1.0.0]
+## [1.0.0] - 2017-02-01
 
 ### Added
 - Initial release
