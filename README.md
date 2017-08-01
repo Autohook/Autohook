@@ -20,6 +20,12 @@ For **multiple scripts** to be run by the same hook, add them with the hook name
 
 For **multiple hooks**, symlink them to `autohook.sh` and name your scripts accordingly.
 
+## Contributing
+
+Contributions of all sorts are welcome, be they bug reports, patches, or even just feedback. Creating a `new issue <https://github.com/nkantar/Autohook/issues/new>`_ or `pull request <https://github.com/nkantar/Autohook/compare>`_ is probably the best way to get started.
+
+Please note that this project is released with a `Contributor Code of Conduct <https://github.com/nkantar/Autohook/blob/master/CODE_OF_CONDUCT.md>`_. By participating in this project you agree to abide by its terms.
+
 ## License
 
 This software is licensed under the _MIT License_. Please see the included `LICENSE.txt` for details.
