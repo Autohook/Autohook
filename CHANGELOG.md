@@ -1,10 +1,11 @@
 # Autohook Changelog
 
 
-# Unreleased
+## [2.0.1] - 2018-01-17
 
 ### Changed
 - Updated project tagline in README and autohook.sh.
+- Updated README formatting.
 
 
 ## [2.0.0] - 2018-01-17
@@ -39,7 +40,8 @@ Autohook is now, well, more auto. The new version is conceptually redesigned:
 - Initial release
 
 
-[Unreleased]: https://github.com/nkantar/Autohook/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/nkantar/Autohook/compare/2.0.1...HEAD
+[2.0.1]: https://github.com/nkantar/Autohook/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/nkantar/Autohook/compare/1.0.2...2.0.0
 [1.0.2]: https://github.com/nkantar/Autohook/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/nkantar/Autohook/compare/1.0.0...1.0.1
