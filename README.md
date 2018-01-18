@@ -1,6 +1,6 @@
 # Autohook
 
-**Autohook** is a very, _very_ small Git hook manager with focus on automation
+**Autohook** is a very, _very_ small Git hook manager with focus on automation.
 
 It consists of one script which acts as the entry point for all the hooks, and which runs scripts based on symlinks in appropriate directories.
 

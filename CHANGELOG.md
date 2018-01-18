@@ -1,6 +1,12 @@
 # Autohook Changelog
 
 
+## [Unreleased]
+
+### Changed
+- Added missing period to the README tagline.
+
+
 ## [2.0.1] - 2018-01-17
 
 ### Changed
