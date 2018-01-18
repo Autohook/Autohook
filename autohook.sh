@@ -3,21 +3,84 @@
 # Autohook
 # A very, very small Git hook "framework".
 # Author:   Nik Kantar <http://nkantar.com>
-# Version:  1.0.0
+# Version:  2.0.0
 # Website:  https://github.com/nkantar/Autohook
 
-hook=$(basename $0)
-repo_root=$(git rev-parse --show-toplevel)
 
-scripts_dir="$repo_root/hooks"
-files=($scripts_dir/*)
+echo() {
+    builtin echo "[Autohook] $@";
+}
 
-for file in "${files[@]}"
-do
-    script=$(basename $file)
-    if [[ $script == $hook* ]]
+
+install() {
+    hook_types=(
+        "applypatch-msg"
+        "commit-msg"
+        "post-applypatch"
+        "post-checkout"
+        "post-commit"
+        "post-merge"
+        "post-receive"
+        "post-rewrite"
+        "post-update"
+        "pre-applypatch"
+        "pre-auto-gc"
+        "pre-commit"
+        "pre-push"
+        "pre-rebase"
+        "pre-receive"
+        "prepare-commit-msg"
+        "update"
+    )
+
+    repo_root=$(git rev-parse --show-toplevel)
+    hooks_dir="$repo_root/.git/hooks"
+    autohook_filename="$repo_root/hooks/autohook.sh"
+    autohook_path=$(realpath $autohook_filename)
+    for hook_type in "${hook_types[@]}"
+    do
+        hook_symlink="$hooks_dir/$hook_type"
+        ln -s $autohook_path $hook_symlink
+    done
+}
+
+
+main() {
+    calling_file=$(basename $0)
+
+    if [[ $calling_file == "autohook.sh" ]]
     then
-        eval $file
+        command=$1
+        if [[ $command == "install" ]]
+        then
+            install
+        fi
+    else
+        repo_root=$(git rev-parse --show-toplevel)
+        hook_type=$calling_file
+        symlinks_dir="$repo_root/hooks/$hook_type"
+        files=("$symlinks_dir"/*)
+        number_of_symlinks="${#files[@]}"
+        if [[ $number_of_symlinks == 1 ]]
+        then
+            if [[ "$(basename ${files[0]})" == "*" ]]
+            then
+                number_of_symlinks=0
+            fi
+        fi
+        echo "Looking for $hook_type scripts to run...found $number_of_symlinks!"
+        if [[ $number_of_symlinks -gt 0 ]]
+        then
+            for file in "${files[@]}"
+            do
+                scriptname=$(basename $file)
+                echo "BEGIN $scriptname"
+                eval $file
+                echo "FINISH $scriptname"
+            done
+        fi
     fi
-done
+}
 
+
+main "$@"

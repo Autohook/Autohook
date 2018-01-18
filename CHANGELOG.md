@@ -1,11 +1,15 @@
 # Autohook Changelog
 
 
-## [Unreleased]
+## [2.0.0] - 2018-01-17
 
 ### Changed
-- Added release dates to the changelog.
-- Added references to contributing guidelines and Code of Conduct to the README.
+Autohook is now, well, more auto. The new version is conceptually redesigned:
+- _All_ your hooks are now run through Autohook, and it just does nothing when it finds nothing.
+- Scripts are intended to be kept in `hooks/scripts/`.
+- Each hook type gets its own directory (e.g., `hooks/post-checkout/`).
+- Scripts are symlinked to inside appropriate directories based on when they should be run (e.g., `hooks/post-checkout/01-delete-pyc-files` would point to `hooks/scripts/delete-pyc-files`).
+- Script symlinks are executed based on the globbing output `("$symlinks_dir"/*)`, so starting their names with numbers helps with maintaining order of execution.
 
 
 ## [1.0.2] - 2017-07-31
@@ -29,7 +33,8 @@
 - Initial release
 
 
-[Unreleased]: https://github.com/nkantar/Autohook/compare/1.0.2...HEAD
+[Unreleased]: https://github.com/nkantar/Autohook/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/nkantar/Autohook/compare/1.0.2...2.0.0
 [1.0.2]: https://github.com/nkantar/Autohook/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/nkantar/Autohook/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/nkantar/Autohook/commit/68a45a0d4ba42d0279ab5c38a1e9dddce1e8ca27

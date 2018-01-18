@@ -2,23 +2,44 @@
 
 **Autohook** is a very, _very_ small Git hook "framework".
 
-It consists of one Bash script which acts as the entry point for all the hooks, and which runs scripts based on file names.
+It consists of one script which acts as the entry point for all the hooks, and which runs scripts based on symlinks in appropriate directories.
 
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/nkantar)
 
+
 ## Example
 
-Let's say you have a cleanup script you want run before commits, aka as a `pre-commit` hook. Here's what you could do:
+Let's say you have a script to remove `.pyc` files that you want to run after every `git checkout` and before every `git commit`, and another script that runs your test suite that you want to run before every `git commit`.
 
-1. In your repo, put `autohook.sh` inside `hooks/`.
-2. Name the script you actually want to run something like `pre-commit-cleanup.sh` and put it inside `hooks/` as well.
-3. Symlink `.git/hooks/pre-commit` to `hooks/autohook.sh`.
-4. You're done.
-5. _Rejoice!_ :tada:
+Here's the overview of steps:
 
-For **multiple scripts** to be run by the same hook, add them with the hook name at the beginning. You can enforce order with numbers (e.g., `pre-commit-1-cleanup.sh`, `pre-commit-2-other-stuff.sh`).
+. Put `autohook.sh` in `hooks/`.
+. Run it with `install` parameter (e.g., `./autohook.sh install`).
+. Put your scripts in `hooks/scripts/`.
+. Make sure said scripts are executable (e.g., `chmod +x hooks/cripts/delete-pyc-files`, etc.).
+. Make directories for your hook types (e.g., `mkdir -p hooks/post-checkout hooks/pre-commit`).
+. Symlink your scripts to the correct directories, using numbers in symlink names to enforce execution order (e.g., `ln -s hooks/scripts/delete-pyc-files.sh hooks/post-checkout/01-delete-pyc-files`, etc.).
 
-For **multiple hooks**, symlink them to `autohook.sh` and name your scripts accordingly.
+The result should be a tree that looks something like this:
+
+```
+repo_root/
+├── hooks/
+│   ├── autohook.sh
+│   ├── post-checkout/
+│   │   └── 01-delete-pyc-files     # symlink to hooks/scripts/delete-pyc-files.sh
+│   ├── pre-commit/
+│   │   ├── 01-delete-pyc-files     # symlink to hooks/scripts/delete-pyc-files.sh
+│   │   └── 02-run-tests            # symlink to hooks/scripts/run-tests.sh
+│   └── scripts/
+│       ├── delete-pyc-files.sh
+│       └── run-tests.sh
+├── other_dirs/
+└── other_files
+```
+
+You're done!
+
 
 ## Contributing
 
@@ -26,7 +47,7 @@ Contributions of all sorts are welcome, be they bug reports, patches, or even ju
 
 Please note that this project is released with a [Contributor Code of Conduct](https://github.com/nkantar/Autohook/blob/master/CODE_OF_CONDUCT.md 'Autohook Code of Conduct'). By participating in this project you agree to abide by its terms.
 
+
 ## License
 
 This software is licensed under the _MIT License_. Please see the included `LICENSE.txt` for details.
-
