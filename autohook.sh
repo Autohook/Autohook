@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Autohook
-# A very, very small Git hook "framework".
+# A very, very small Git hook manager with focus on automation
 # Author:   Nik Kantar <http://nkantar.com>
 # Version:  2.0.0
 # Website:  https://github.com/nkantar/Autohook
