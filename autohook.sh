@@ -3,7 +3,7 @@
 # Autohook
 # A very, very small Git hook manager with focus on automation
 # Author:   Nik Kantar <http://nkantar.com>
-# Version:  2.0.0
+# Version:  2.1.0
 # Website:  https://github.com/nkantar/Autohook
 
 
@@ -75,7 +75,7 @@ main() {
             do
                 scriptname=$(basename $file)
                 echo "BEGIN $scriptname"
-                eval $file
+                eval $file &> /dev/null
                 echo "FINISH $scriptname"
             done
         fi

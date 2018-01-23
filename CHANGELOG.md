@@ -1,9 +1,10 @@
 # Autohook Changelog
 
 
-## [Unreleased]
+## [2.1.0] - 2018-01-22
 
 ### Changed
+- Disabled script output by redirecting to /dev/null.
 - Added missing period to the README tagline.
 
 
@@ -46,7 +47,8 @@ Autohook is now, well, more auto. The new version is conceptually redesigned:
 - Initial release
 
 
-[Unreleased]: https://github.com/nkantar/Autohook/compare/2.0.1...HEAD
+[Unreleased]: https://github.com/nkantar/Autohook/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/nkantar/Autohook/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/nkantar/Autohook/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/nkantar/Autohook/compare/1.0.2...2.0.0
 [1.0.2]: https://github.com/nkantar/Autohook/compare/1.0.1...1.0.2
