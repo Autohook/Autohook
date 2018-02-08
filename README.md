@@ -16,7 +16,7 @@ Here's the overview of steps:
 1. Put `autohook.sh` in `hooks/`.
 2. Run it with `install` parameter (e.g., `./autohook.sh install`).
 3. Put your scripts in `hooks/scripts/`.
-4. Make sure said scripts are executable (e.g., `chmod +x hooks/cripts/delete-pyc-files`, etc.).
+4. Make sure said scripts are executable (e.g., `chmod +x hooks/scripts/delete-pyc-files`, etc.).
 5. Make directories for your hook types (e.g., `mkdir -p hooks/post-checkout hooks/pre-commit`).
 6. Symlink your scripts to the correct directories, using numbers in symlink names to enforce execution order (e.g., `ln -s hooks/scripts/delete-pyc-files.sh hooks/post-checkout/01-delete-pyc-files`, etc.).
 
