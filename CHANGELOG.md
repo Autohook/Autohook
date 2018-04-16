@@ -1,6 +1,12 @@
 # Autohook Changelog
 
 
+## [2.1.1] - 2018-04-16
+
+### Changed
+- Updated documentation to reflect `realpath` dependency.
+
+
 ## [2.1.0] - 2018-01-22
 
 ### Changed
@@ -47,10 +53,11 @@ Autohook is now, well, more auto. The new version is conceptually redesigned:
 - Initial release
 
 
-[Unreleased]: https://github.com/nkantar/Autohook/compare/2.1.0...HEAD
+[Unreleased]: https://github.com/nkantar/Autohook/compare/2.1.1...HEAD
+[2.1.1]: https://github.com/nkantar/Autohook/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/nkantar/Autohook/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/nkantar/Autohook/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/nkantar/Autohook/compare/1.0.2...2.0.0
 [1.0.2]: https://github.com/nkantar/Autohook/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/nkantar/Autohook/compare/1.0.0...1.0.1
-[1.0.0]: https://github.com/nkantar/Autohook/commit/68a45a0d4ba42d0279ab5c38a1e9dddce1e8ca27
+[1.0.0]: https://github.com/nkantar/Autohook/releases/tag/1.0.0
