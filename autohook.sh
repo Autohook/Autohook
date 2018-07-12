@@ -35,12 +35,11 @@ install() {
 
     repo_root=$(git rev-parse --show-toplevel)
     hooks_dir="$repo_root/.git/hooks"
-    autohook_filename="$repo_root/hooks/autohook.sh"
-    autohook_path=$(realpath $autohook_filename)
+    autohook_linktarget="../../hooks/autohook.sh"
     for hook_type in "${hook_types[@]}"
     do
         hook_symlink="$hooks_dir/$hook_type"
-        ln -s $autohook_path $hook_symlink
+        ln -s $autohook_linktarget $hook_symlink
     done
 }
 
