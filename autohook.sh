@@ -70,13 +70,24 @@ main() {
         echo "Looking for $hook_type scripts to run...found $number_of_symlinks!"
         if [[ $number_of_symlinks -gt 0 ]]
         then
+            hook_exit_code=0
             for file in "${files[@]}"
             do
                 scriptname=$(basename $file)
                 echo "BEGIN $scriptname"
                 eval $file &> /dev/null
+                script_exit_code=$?
+                if [[ $script_exit_code != 0 ]]
+                then
+                  hook_exit_code=$script_exit_code
+                fi
                 echo "FINISH $scriptname"
             done
+            if [[ $hook_exit_code != 0 ]]
+            then
+              echo "A $hook_type script yielded negative exit code $hook_exit_code"
+              exit $hook_exit_code
+            fi
         fi
     fi
 }
