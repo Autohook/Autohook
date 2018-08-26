@@ -41,13 +41,6 @@ repo_root/
 You're done!
 
 
-## Requirements
-
-### `realpath`
-
-You will need [`realpath`](https://linux.die.net/man/3/realpath 'realpath(3) - Linux man page'). Most Linux and BSD systems should already have it, and on macOS you should `brew install coreutils` (which comes from [here](https://github.com/Homebrew/homebrew-core/blob/master/Formula/coreutils.rb 'Homebrew/homebrew-core - homebrew-core/Formula/coreutils.rb')).
-
-
 ## Contributing
 
 Contributions of all sorts are welcome, be they bug reports, patches, or even just feedback. Creating a [new issue](https://github.com/nkantar/Autohook/issues/new 'New Issue') or [pull request](https://github.com/nkantar/Autohook/compare 'New Pull Request') is probably the best way to get started.
