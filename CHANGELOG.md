@@ -1,6 +1,13 @@
 # Autohook Changelog
 
 
+## [2.2.0] - 2018-08-26
+
+### Changed
+- `autohook.sh` is now symlinked relatively, making the repo portable and deprecating the need for `realpath`.
+- Hook script failure code gets reported at the end if it occurs.
+
+
 ## [2.1.1] - 2018-04-16
 
 ### Changed
@@ -53,7 +60,8 @@ Autohook is now, well, more auto. The new version is conceptually redesigned:
 - Initial release
 
 
-[Unreleased]: https://github.com/nkantar/Autohook/compare/2.1.1...HEAD
+[Unreleased]: https://github.com/nkantar/Autohook/compare/2.2.0...HEAD
+[2.2.0]: https://github.com/nkantar/Autohook/compare/2.1.1...2.2.0
 [2.1.1]: https://github.com/nkantar/Autohook/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/nkantar/Autohook/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/nkantar/Autohook/compare/2.0.0...2.0.1
