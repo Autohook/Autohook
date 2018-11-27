@@ -13,19 +13,21 @@ Let's say you have a script to remove `.pyc` files that you want to run after ev
 
 Here's the overview of steps:
 
-1. Put `autohook.sh` in `hooks/`.
-2. Run it with `install` parameter (e.g., `./autohook.sh install`).
-3. Put your scripts in `hooks/scripts/`.
-4. Make sure said scripts are executable (e.g., `chmod +x hooks/scripts/delete-pyc-files`, etc.).
+1. Install `autohook.sh` to a directory of your liking.
+2. Put your scripts in:
+  - alternative 1: `hooks/scripts/` next to the `autohook.sh` script.
+  - alternative 2: a custom directory pointed to by the `AUTOHOOK_HOOKS_DIR` environment variable
+3. Make sure said scripts are executable (e.g., `chmod -R +x hooks/`)
+4. Run `autohook.sh` with the `install` parameter (e.g., `./autohook.sh install`).
 5. Make directories for your hook types (e.g., `mkdir -p hooks/post-checkout hooks/pre-commit`).
 6. Symlink your scripts to the correct directories, using numbers in symlink names to enforce execution order (e.g., `ln -s hooks/scripts/delete-pyc-files.sh hooks/post-checkout/01-delete-pyc-files`, etc.).
+  - Alternatively, you could place your scripts directly under `hooks/post-checkout`, etc
 
 The result should be a tree that looks something like this:
 
 ```
 repo_root/
-├── hooks/
-│   ├── autohook.sh
+├── hooks/ OR $AUTOHOOK_HOOKS_DIR/
 │   ├── post-checkout/
 │   │   └── 01-delete-pyc-files     # symlink to hooks/scripts/delete-pyc-files.sh
 │   ├── pre-commit/

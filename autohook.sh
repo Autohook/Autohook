@@ -42,7 +42,7 @@ install() {
     for hook_type in "${hook_types[@]}"
     do
         hook_symlink="$hooks_dir/$hook_type"
-        ln -s "$autohook_linktarget" "$hook_symlink"
+        ln -sf "$autohook_linktarget" "$hook_symlink"
     done
 }
 
@@ -63,7 +63,7 @@ main() {
 
         if [[ "${AUTOHOOK_HOOKS_DIR=''}" != '' ]]
         then
-            symlinks_dir="$AUTHOOK_HOOKS_DIR/$hook_type"
+            symlinks_dir="$AUTOHOOK_HOOKS_DIR/$hook_type"
         else
             symlinks_dir="$repo_root/hooks/$hook_type"
         fi
