@@ -35,7 +35,10 @@ install() {
 
     repo_root="$(git rev-parse --show-toplevel)"
     hooks_dir="$repo_root/.git/hooks"
-    autohook_linktarget="../../hooks/autohook.sh"
+    cd "${0%/*}"
+    autohook_linktarget="$(pwd)/autohook.sh"
+    echo "$autohook_linktarget"
+
     for hook_type in "${hook_types[@]}"
     do
         hook_symlink="$hooks_dir/$hook_type"
@@ -57,7 +60,14 @@ main() {
     else
         repo_root="$(git rev-parse --show-toplevel)"
         hook_type="$calling_file"
-        symlinks_dir="$repo_root/hooks/$hook_type"
+
+        if [[ "${AUTOHOOK_HOOKS_DIR=''}" != '' ]]
+        then
+            symlinks_dir="$AUTHOOK_HOOKS_DIR/$hook_type"
+        else
+            symlinks_dir="$repo_root/hooks/$hook_type"
+        fi
+
         files=("$symlinks_dir"/*)
         number_of_symlinks="${#files[@]}"
         if [[ "$number_of_symlinks" == 1 ]]
