@@ -75,9 +75,9 @@ main() {
             do
                 scriptname=$(basename $file)
                 echo "BEGIN $scriptname"
-                eval $file &> /dev/null
-                script_exit_code=$?
-                if [[ $script_exit_code != 0 ]]
+                eval "$file"
+                script_exit_code="$?"
+                if [[ "$script_exit_code" != 0 ]]
                 then
                   hook_exit_code=$script_exit_code
                 fi
