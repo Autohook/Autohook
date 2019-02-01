@@ -39,7 +39,7 @@ install() {
     for hook_type in "${hook_types[@]}"
     do
         hook_symlink="$hooks_dir/$hook_type"
-        ln -s $autohook_linktarget $hook_symlink
+        ln -sf $autohook_linktarget $hook_symlink
     done
 }
 
