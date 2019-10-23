@@ -51,40 +51,53 @@ main() {
     if [[ "$command" == "install" ]]; then
       install
     fi
+    return
+  fi
+
+  repo_root="$(git rev-parse --show-toplevel)"
+  hook_type="$calling_file"
+
+  local -a hook_dirs
+  if [[ "${AUTOHOOK_hook_dirs=''}" != '' ]]; then
+    readarray -t -d':' hook_dirs <<<"${AUTOHOOK_HOOKS_DIR}"
+    hook_dirs[-1]="${hook_dirs[-1]%$'\n'}"
   else
-    repo_root="$(git rev-parse --show-toplevel)"
-    hook_type="$calling_file"
+    hook_dirs=("$repo_root/hooks/")
+  fi
 
-    if [[ "${AUTOHOOK_HOOKS_DIR=''}" != '' ]]; then
-      symlinks_dir="$AUTOHOOK_HOOKS_DIR/$hook_type"
-    else
-      symlinks_dir="$repo_root/hooks/$hook_type"
-    fi
+  local -a files
+  for dir in "${hook_dirs[@]/%//$hook_type}"; do
+    files+=("$dir"/*)
+  done
 
-    files=("$symlinks_dir"/*)
-    number_of_symlinks="${#files[@]}"
-    if [[ "$number_of_symlinks" == 1 ]]; then
-      if [[ "$(basename "${files[0]}")" == "*" ]]; then
-        number_of_symlinks=0
-      fi
+  number_of_hooks="${#files[@]}"
+  if [[ "$number_of_hooks" == 1 ]]; then
+    if [[ "$(basename "${files[0]}")" == "*" ]]; then
+      number_of_hooks=0
     fi
-    echo "Looking for $hook_type scripts to run...found $number_of_symlinks!"
-    if [[ "$number_of_symlinks" -gt 0 ]]; then
-      hook_exit_code=0
-      for file in "${files[@]}"; do
-        scriptname="$(basename "$file")"
-        echo "BEGIN $scriptname"
-        eval "$file" &>/dev/null
-        script_exit_code="$?"
-        if [[ "$script_exit_code" != 0 ]]; then
-          hook_exit_code="$script_exit_code"
-        fi
-        echo "FINISH $scriptname"
-      done
-      if [[ "$hook_exit_code" != 0 ]]; then
-        echo "A $hook_type script yielded negative exit code $hook_exit_code"
-        exit "$hook_exit_code"
+  fi
+
+  echo "Looking for $hook_type scripts to run...found $number_of_hooks!"
+
+  if [[ "$number_of_hooks" -gt 0 ]]; then
+    local hook_exit_code=0
+    local failed_hook=''
+
+    for file in "${files[@]}"; do
+      scriptname="$(basename "$file")"
+      echo "BEGIN $scriptname"
+      eval "'$file'"
+      script_exit_code="$?"
+      if [[ "$script_exit_code" != 0 ]]; then
+        hook_exit_code="$script_exit_code"
+        failed_hook="$file"
       fi
+      echo "FINISH $scriptname"
+    done
+
+    if [[ "$hook_exit_code" != 0 ]]; then
+      echo "The $hook_type script '${failed_hook##*/$hook_type/}' yielded negative exit code $hook_exit_code"
+      exit "$hook_exit_code"
     fi
   fi
 }
