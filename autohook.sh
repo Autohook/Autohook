@@ -13,7 +13,10 @@ echo() {
 
 # Set up a temporary file and delete it automatically upon exit.
 
-TMPDIR="${$TMPDIR:=/tmp}"
+if [[ "x$TMPDIR" = "x" ]]
+then
+    export TMPDIR="/tmp"
+fi
 tmpfile="${TMPDIR}/$(basename "$0").$$"
 
 cleanup() {
@@ -71,6 +74,7 @@ install() {
 reads_stdin() {
     [[ "x ${hook_types_stdin[*]} " = x*" $1 "* ]]
     return $?
+}
 
 main() {
     calling_file=$(basename $0)
