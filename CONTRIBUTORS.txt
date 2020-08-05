@@ -1,6 +1,6 @@
 # Contributors to the Autohook project
 
-## Contributors in Chronoligical order
+## Contributors in Chronological order
 
 * Nikola Kantar
 * Ralph Weires
