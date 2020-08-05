@@ -3,6 +3,5 @@
 ## Contributors in Chronological order
 
 * Nikola Kantar
-* Ralph Weires
 * William Lauzé
 * Tyrel Souza
