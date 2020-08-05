@@ -1,0 +1,7 @@
+# Contributors to the Autohook project
+
+## Contributors in Chronoligical order
+
+* Nikola Kantar
+* William Lauzé
+* Tyrel Souza
