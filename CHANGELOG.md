@@ -1,6 +1,30 @@
 # Autohook Changelog
 
 
+<!--
+Added      for new features.
+Changed    for changes in existing functionality.
+Deprecated for soon-to-be removed features.
+Removed    for now removed features.
+Fixed      for any bug fixes.
+Security   in case of vulnerabilities.
+-->
+
+
+## [Unreleased]
+
+### Added
+- Contributors link to main executable.
+
+### Changed
+- Moved repo to Autohook org.
+- Updated listed website to reflect said move
+
+### Removed
+- Author from main executable.
+- "Say Thanks" badge from README.
+
+
 ## [2.2.1] - 2018-08-26
 
 ### Changed

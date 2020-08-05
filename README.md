@@ -4,8 +4,6 @@
 
 It consists of one script which acts as the entry point for all the hooks, and which runs scripts based on symlinks in appropriate directories.
 
-[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/nkantar)
-
 
 ## Example
 
