@@ -15,6 +15,8 @@ Security   in case of vulnerabilities.
 
 ### Added
 - Contributors link to main executable.
+- `AUTOHOOK_DEBUG` flag for debug output.
+- Hook output.
 
 ### Changed
 - Moved repo to Autohook org.
@@ -23,6 +25,10 @@ Security   in case of vulnerabilities.
 ### Removed
 - Author from main executable.
 - "Say Thanks" badge from README.
+
+### Fixed
+- Bug with file names containing spaces.
+- Bug with reinstallation.
 
 
 ## [2.2.1] - 2018-08-26
