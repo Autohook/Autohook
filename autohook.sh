@@ -3,7 +3,7 @@
 # Autohook
 # A very, very small Git hook manager with focus on automation
 # Contributors:   https://github.com/Autohook/Autohook/graphs/contributors
-# Version:        2.1.1
+# Version:        2.3.0
 # Website:        https://github.com/Autohook/Autohook
 
 

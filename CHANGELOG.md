@@ -13,6 +13,9 @@ Security   in case of vulnerabilities.
 
 ## [Unreleased]
 
+
+## [2.3.0] - 2021-02-22
+
 ### Added
 - Contributors link to main executable.
 - `AUTOHOOK_DEBUG` flag for debug output.
@@ -96,7 +99,8 @@ Autohook is now, well, more auto. The new version is conceptually redesigned:
 - Initial release
 
 
-[Unreleased]: https://github.com/Autohook/Autohook/compare/2.2.1...HEAD
+[Unreleased]: https://github.com/Autohook/Autohook/compare/2.3.0...HEAD
+[2.3.0]: https://github.com/Autohook/Autohook/compare/2.2.1...2.3.0
 [2.2.1]: https://github.com/Autohook/Autohook/compare/2.2.0...2.2.1
 [2.2.0]: https://github.com/Autohook/Autohook/compare/2.1.1...2.2.0
 [2.1.1]: https://github.com/Autohook/Autohook/compare/2.1.0...2.1.1
