@@ -39,7 +39,7 @@ install() {
     for hook_type in "${hook_types[@]}"
     do
         hook_symlink="$hooks_dir/$hook_type"
-        ln -s $autohook_linktarget $hook_symlink
+        ln -sf $autohook_linktarget $hook_symlink
     done
 }
 
@@ -75,9 +75,13 @@ main() {
             do
                 scriptname=$(basename $file)
                 echo "BEGIN $scriptname"
-                eval $file &> /dev/null
-                script_exit_code=$?
-                if [[ $script_exit_code != 0 ]]
+                if [[ "${AUTOHOOK_DEBUG-}" == '' ]]; then
+                  eval "\"$file\"" &>/dev/null
+                else
+                  eval "\"$file\""
+                fi
+                script_exit_code="$?"
+                if [[ "$script_exit_code" != 0 ]]
                 then
                   hook_exit_code=$script_exit_code
                 fi
