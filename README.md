@@ -4,8 +4,6 @@
 
 It consists of one script which acts as the entry point for all the hooks, and which runs scripts based on symlinks in appropriate directories.
 
-[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/nkantar)
-
 
 ## Example
 
@@ -43,9 +41,9 @@ You're done!
 
 ## Contributing
 
-Contributions of all sorts are welcome, be they bug reports, patches, or even just feedback. Creating a [new issue](https://github.com/nkantar/Autohook/issues/new 'New Issue') or [pull request](https://github.com/nkantar/Autohook/compare 'New Pull Request') is probably the best way to get started.
+Contributions of all sorts are welcome, be they bug reports, patches, or even just feedback. Creating a [new issue](https://github.com/Autohook/Autohook/issues/new 'New Issue') or [pull request](https://github.com/Autohook/Autohook/compare 'New Pull Request') is probably the best way to get started.
 
-Please note that this project is released with a [Contributor Code of Conduct](https://github.com/nkantar/Autohook/blob/master/CODE_OF_CONDUCT.md 'Autohook Code of Conduct'). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](https://github.com/Autohook/Autohook/blob/master/CODE_OF_CONDUCT.md 'Autohook Code of Conduct'). By participating in this project you agree to abide by its terms.
 
 
 ## License
