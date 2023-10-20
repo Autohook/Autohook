@@ -65,7 +65,7 @@ install() {
     for hook_type in "${hook_types[@]}" "${hook_types_stdin[@]}"
     do
         hook_symlink="$hooks_dir/$hook_type"
-        ln -sf $autohook_linktarget $hook_symlink
+        ln -sf $autohook_linktarget "$hook_symlink"
     done
 }
 
@@ -77,7 +77,7 @@ reads_stdin() {
 }
 
 main() {
-    calling_file=$(basename $0)
+    calling_file=$(basename "$0")
 
     if [[ $calling_file == "autohook.sh" ]]
     then
@@ -98,7 +98,7 @@ main() {
         number_of_symlinks="${#files[@]}"
         if [[ $number_of_symlinks == 1 ]]
         then
-            if [[ "$(basename ${files[0]})" == "*" ]]
+            if [[ "$(basename "${files[0]}")" == "*" ]]
             then
                 number_of_symlinks=0
             fi
@@ -113,7 +113,7 @@ main() {
             hook_exit_code=0
             for file in "${files[@]}"
             do
-                scriptname=$(basename $file)
+                scriptname=$(basename "$file")
                 echo "BEGIN $scriptname"
                 if reads_stdin "$calling_file"
                 then
