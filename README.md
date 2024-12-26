@@ -4,8 +4,6 @@
 
 It consists of one script which acts as the entry point for all the hooks, and which runs scripts based on symlinks in appropriate directories.
 
-[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/nkantar)
-
 
 ## Example
 
@@ -15,12 +13,12 @@ Here's the overview of steps:
 
 1. Install `autohook.sh` to a directory of your liking.
 2. Put your scripts in:
-  - alternative 1: `hooks/scripts/` next to the `autohook.sh` script.
+  - alternative 1: the `hooks` directory next to the `autohook.sh` script.
   - alternative 2: a custom directory pointed to by the `AUTOHOOK_HOOKS_DIR` environment variable
 3. Make sure said scripts are executable (e.g., `chmod -R +x hooks/`)
 4. Run `autohook.sh` with the `install` parameter (e.g., `./autohook.sh install`).
 5. Make directories for your hook types (e.g., `mkdir -p hooks/post-checkout hooks/pre-commit`).
-6. Symlink your scripts to the correct directories, using numbers in symlink names to enforce execution order (e.g., `ln -s hooks/scripts/delete-pyc-files.sh hooks/post-checkout/01-delete-pyc-files`, etc.).
+6. Symlink your scripts to the correct directories, using numbers in symlink names to enforce execution order (e.g., `ln -s $PWD/hooks/scripts/delete-pyc-files.sh hooks/post-checkout/01-delete-pyc-files`, etc.).
   - Alternatively, you could place your scripts directly under `hooks/post-checkout`, etc
 
 The result should be a tree that looks something like this:
@@ -45,9 +43,9 @@ You're done!
 
 ## Contributing
 
-Contributions of all sorts are welcome, be they bug reports, patches, or even just feedback. Creating a [new issue](https://github.com/nkantar/Autohook/issues/new 'New Issue') or [pull request](https://github.com/nkantar/Autohook/compare 'New Pull Request') is probably the best way to get started.
+Contributions of all sorts are welcome, be they bug reports, patches, or even just feedback. Creating a [new issue](https://github.com/Autohook/Autohook/issues/new 'New Issue') or [pull request](https://github.com/Autohook/Autohook/compare 'New Pull Request') is probably the best way to get started.
 
-Please note that this project is released with a [Contributor Code of Conduct](https://github.com/nkantar/Autohook/blob/master/CODE_OF_CONDUCT.md 'Autohook Code of Conduct'). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](https://github.com/Autohook/Autohook/blob/master/CODE_OF_CONDUCT.md 'Autohook Code of Conduct'). By participating in this project you agree to abide by its terms.
 
 
 ## License

@@ -1,6 +1,39 @@
 # Autohook Changelog
 
 
+<!--
+Added      for new features.
+Changed    for changes in existing functionality.
+Deprecated for soon-to-be removed features.
+Removed    for now removed features.
+Fixed      for any bug fixes.
+Security   in case of vulnerabilities.
+-->
+
+
+## [Unreleased]
+
+
+## [2.3.0] - 2021-02-22
+
+### Added
+- Contributors link to main executable.
+- `AUTOHOOK_DEBUG` flag for debug output.
+- Hook output.
+
+### Changed
+- Moved repo to Autohook org.
+- Updated listed website to reflect said move
+
+### Removed
+- Author from main executable.
+- "Say Thanks" badge from README.
+
+### Fixed
+- Bug with file names containing spaces.
+- Bug with reinstallation.
+
+
 ## [2.2.1] - 2018-08-26
 
 ### Changed
@@ -66,13 +99,14 @@ Autohook is now, well, more auto. The new version is conceptually redesigned:
 - Initial release
 
 
-[Unreleased]: https://github.com/nkantar/Autohook/compare/2.2.1...HEAD
-[2.2.1]: https://github.com/nkantar/Autohook/compare/2.2.0...2.2.1
-[2.2.0]: https://github.com/nkantar/Autohook/compare/2.1.1...2.2.0
-[2.1.1]: https://github.com/nkantar/Autohook/compare/2.1.0...2.1.1
-[2.1.0]: https://github.com/nkantar/Autohook/compare/2.0.1...2.1.0
-[2.0.1]: https://github.com/nkantar/Autohook/compare/2.0.0...2.0.1
-[2.0.0]: https://github.com/nkantar/Autohook/compare/1.0.2...2.0.0
-[1.0.2]: https://github.com/nkantar/Autohook/compare/1.0.1...1.0.2
-[1.0.1]: https://github.com/nkantar/Autohook/compare/1.0.0...1.0.1
-[1.0.0]: https://github.com/nkantar/Autohook/releases/tag/1.0.0
+[Unreleased]: https://github.com/Autohook/Autohook/compare/2.3.0...HEAD
+[2.3.0]: https://github.com/Autohook/Autohook/compare/2.2.1...2.3.0
+[2.2.1]: https://github.com/Autohook/Autohook/compare/2.2.0...2.2.1
+[2.2.0]: https://github.com/Autohook/Autohook/compare/2.1.1...2.2.0
+[2.1.1]: https://github.com/Autohook/Autohook/compare/2.1.0...2.1.1
+[2.1.0]: https://github.com/Autohook/Autohook/compare/2.0.1...2.1.0
+[2.0.1]: https://github.com/Autohook/Autohook/compare/2.0.0...2.0.1
+[2.0.0]: https://github.com/Autohook/Autohook/compare/1.0.2...2.0.0
+[1.0.2]: https://github.com/Autohook/Autohook/compare/1.0.1...1.0.2
+[1.0.1]: https://github.com/Autohook/Autohook/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/Autohook/Autohook/releases/tag/1.0.0
