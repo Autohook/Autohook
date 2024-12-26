@@ -166,9 +166,9 @@ main() {
       echo "BEGIN $scriptname"
 
       if reads_stdin "$hook_type"; then
-        "$file" < "$tmpfile"
+        "$file" "$@" < "$tmpfile"
       else
-        "$file"
+        "$file" "$@"
       fi
 
       script_exit_code="$?"
