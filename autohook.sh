@@ -9,12 +9,12 @@
 debugging=1
 debug() {
   if [[ $debugging -ne 0 ]]; then
-    builtin echo "[Autohook debug] $@"
+    builtin echo "[Autohook debug] $@" 1>&2
   fi
 }
 
 echo() {
-  builtin echo "[Autohook] $@"
+  builtin echo "[Autohook] $@" 1>&2
 }
 
 # Set up a temporary file and delete it automatically upon exit.
