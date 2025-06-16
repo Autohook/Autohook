@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -eu
+#!/usr/bin/env bash
 
 # Autohook
 # A very, very small Git hook manager with focus on automation
@@ -6,7 +6,12 @@
 # Version:        2.3.0
 # Website:        https://github.com/Autohook/Autohook
 
-debugging=1
+set -eu
+
+if [ "${AUTOHOOK_TRACE:-}" ]; then
+	set -x
+fi
+debugging="${AUTOHOOK_DEBUG:-0}"
 debug() {
   if [[ $debugging -ne 0 ]]; then
     builtin echo "[Autohook debug] $@" 1>&2
@@ -19,7 +24,7 @@ echo() {
 
 # Set up a temporary file and delete it automatically upon exit.
 
-if [[ "x$TMPDIR" = "x" ]]
+if [[ "x${TMPDIR:-}" = "x" ]]
 then
   export TMPDIR="/tmp"
 fi
@@ -139,7 +144,7 @@ main() {
     debug "    $hd"
   done
 
-  local -a files
+  local -a files=()
   for pdir in "${hook_dirs[@]}"; do
     dir="${pdir//\%/$hook_type}"
     debug "Looking for $hook_type hooks in $dir"
