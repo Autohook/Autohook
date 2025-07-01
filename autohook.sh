@@ -24,7 +24,7 @@ echo() {
 
 # Set up a temporary file and delete it automatically upon exit.
 
-if [[ "x${TMPDIR:-}" = "x" ]]
+if [ -z "${TMPDIR:-}" ]
 then
   export TMPDIR="/tmp"
 fi
